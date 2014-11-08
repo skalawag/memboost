@@ -1,5 +1,5 @@
 class UiController < ApplicationController
-  def front
+  def register
   end
 
   def home
