@@ -2,6 +2,7 @@
 
 * Ruby version
 - ruby 2.1.4p265 (2014-10-27 revision 48166) [x86_64-linux]
+- Rails 4.1.6
 * System dependencies
 * Configuration
 * Database creation
