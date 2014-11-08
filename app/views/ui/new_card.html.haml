@@ -1,0 +1,23 @@
+%br
+%h2.text-center Greek Vocabulary
+%hr
+
+%br
+%br
+%br
+%form
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+          %label.right.inline{:for => "right-label"} Side 1:
+        .small-9.columns
+          %input#right-label{:placeholder => "", :type => "text"}
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+          %label.right.inline{:for => "right-label"} Side 2:
+        .small-9.columns
+          %input#right-label{:placeholder => "", :type => "text"}
+            %a.button.small.radius{ :href => "#", :role => "button"} Save New Card

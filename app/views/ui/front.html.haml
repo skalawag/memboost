@@ -1,1 +1,17 @@
-%h1 Memboost
+%h1.text-center Memboost
+%hr
+.row
+  .large-8.columns.large-offset-2
+    %p
+      - 50.times do
+        Lorem Ipsum
+%br
+%br
+.row
+  .large-5.columns.large-offset-3
+    %fieldset
+      %legend Login
+      %input{ :placeholder => "yourname@yourmail.com", :type => "text" }
+      %input{ :placeholder => "your password", :type => "text" }
+      %a.button.small{:class => "[ radius round ]", :href => "#", :role => "button"} Submit
+      %a.right{ :href => "#" } Register
