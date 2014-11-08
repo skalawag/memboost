@@ -1,0 +1,11 @@
+#+TITLE: README
+
+* Ruby version
+- ruby 2.1.4p265 (2014-10-27 revision 48166) [x86_64-linux]
+* System dependencies
+* Configuration
+* Database creation
+* Database initialization
+* How to run the test suite
+* Services (job queues, cache servers, search engines, etc.)
+* Deployment instructions
