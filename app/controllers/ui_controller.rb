@@ -1,4 +1,7 @@
 class UiController < ApplicationController
+  def front
+  end
+
   def register
   end
 
