@@ -15,7 +15,7 @@
   %body
     %nav
       = render 'shared/navigation'
-
+    %section.content.clearfix
+      = render 'shared/messages'
       = yield
-
       = javascript_include_tag "application"
