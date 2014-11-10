@@ -2,7 +2,7 @@ class UiController < ApplicationController
   def register
   end
 
-  def home
+  def user_index
   end
 
   def pack_page
