@@ -10,4 +10,4 @@
       %h3
         %a{ :href => pack_path(pack.id) } #{pack.name} (#{pack.cards.count} cards)
         .nice.round.progress.success
-          %span.meter{:style => "width: 30%"}
+          %span.meter{:style => "width: #{pack.percent_learned}%"}

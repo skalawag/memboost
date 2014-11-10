@@ -4,7 +4,7 @@
 %ul.side-nav
   %li
     %h3
-      %a{ :href => "#" } Begin review
+      = link_to "Begin Review", random_card_path(data: { pack_id: @pack.id })
   %li
     %h3
       = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })

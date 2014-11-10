@@ -7,10 +7,6 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     @card.pack_id = params[:pack_id]
-    # FIXME: these are default parameters, and I should be able to add
-    # them as such in the model
-    @card.learning_stage = 'unlearned'
-    @card.attempts = 0
     if @card.save
       flash[:success] = "Your card was added."
       redirect_to pack_path(params[:pack_id])
@@ -18,6 +14,22 @@ class CardsController < ApplicationController
       flash[:error] = "Something went wrong."
       render :new
     end
+  end
+
+  def random_card
+    redirect_to card_path(Pack.find(params[:data][:pack_id]).cards.sample.id)
+  end
+
+  def show
+    @card = Card.find(params[:id])
+  end
+
+  def answer
+    @card = Card.find(params[:card_id])
+  end
+
+  def learned
+    @card = Card.find(params[:card_id])
   end
 
   private
