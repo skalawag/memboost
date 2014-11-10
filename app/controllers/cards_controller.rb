@@ -30,6 +30,7 @@ class CardsController < ApplicationController
 
   def learned
     @card = Card.find(params[:card_id])
+    @card.update!(learning_stage: 'learned')
   end
 
   private
