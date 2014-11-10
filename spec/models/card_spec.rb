@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe Card do
+  it { should belong_to :pack }
   it { should validate_presence_of :front }
   it { should validate_uniqueness_of :front }
   it { should validate_presence_of :back }
-  it { should belong_to :user }
   it { should validate_numericality_of :attempts }
 
   it "should validate format of learning_stage" do
@@ -21,6 +21,6 @@ describe Card do
   it "should have number of attempts >= 0" do
     card = Fabricate(:card)
     card.attempts = -1
-    expect(card.valid?).to eq(false)
+    expect(card.valid?).to be(false)
   end
 end
