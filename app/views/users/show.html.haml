@@ -8,6 +8,6 @@
   .large-8.columns.large-offset-1
     - @user.packs.each do |pack|
       %h3
-        %a{ :href => "#" } #{pack.name} (#{pack.cards.count} cards)
+        %a{ :href => pack_path(pack.id) } #{pack.name} (#{pack.cards.count} cards)
         .nice.round.progress.success
           %span.meter{:style => "width: 30%"}
