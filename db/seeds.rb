@@ -7,14 +7,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Fabricate(:card, front: "κακός", back: "bad, ugly")
-Fabricate(:card, front: "βασιλεύς", back: "king, chief")
-Fabricate(:card, front: "διδάσκαλος", back: "teacher, master")
-Fabricate(:card, front: "ἐναντίος", back: "opposite")
-Fabricate(:card, front: "ἰατρός", back: "one who heals, physician")
-Fabricate(:card, front: "καλός", back: "beautiful, good")
-Fabricate(:card, front: "κέρδος", back: "gain, profit")
-Fabricate(:card, front: "λόγος", back: "word, reason, account")
-Fabricate(:card, front: "παῖς", back: "child")
-Fabricate(:card, front: "πρᾶγμα", back: "deed, act")
-Fabricate(:card, front: "σῶμα", back: "body")
+user = Fabricate(:user)
+
+greek = Fabricate(:pack, name: "Ancient Greek Vocabulary")
+history = Fabricate(:pack, name: "U.S. History")
+rails = Fabricate(:pack, name: "Ruby on Rails")
+
+user.packs << greek
+user.packs << history
+user.packs << rails
+
+greek.cards << Fabricate(:card, front: "κακός", back: "bad, ugly")
+greek.cards << Fabricate(:card, front: "βασιλεύς", back: "king, chief")
+greek.cards << Fabricate(:card, front: "διδάσκαλος", back: "teacher, master")
+greek.cards << Fabricate(:card, front: "ἐναντίος", back: "opposite")
+greek.cards << Fabricate(:card, front: "ἰατρός", back: "one who heals, physician")
+greek.cards << Fabricate(:card, front: "καλός", back: "beautiful, good")
+greek.cards << Fabricate(:card, front: "κέρδος", back: "gain, profit")
+greek.cards << Fabricate(:card, front: "λόγος", back: "word, reason, account")
+greek.cards << Fabricate(:card, front: "παῖς", back: "child")
+greek.cards << Fabricate(:card, front: "πρᾶγμα", back: "deed, act")
+greek.cards << Fabricate(:card, front: "σῶμα", back: "body")
