@@ -1,0 +1,24 @@
+%br
+%h2.text-center Greek Vocabulary
+%hr
+
+%br
+%br
+%br
+= form_for @card do |f|
+  = hidden_field_tag "pack_id", @pack_id
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+          = f.label :front
+        .small-9.columns
+          = f.text_field :front
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+          = f.label :back
+        .small-9.columns
+          = f.text_field :back
+          = f.submit

@@ -7,4 +7,4 @@
       %a{ :href => "#" } Begin review
   %li
     %h3
-      %a{ :href => "#" } Add Cards
+      = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })
