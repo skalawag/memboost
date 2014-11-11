@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
   resources :users, only: [:show, :create]
-  resources :packs, only: [:show]
+  resources :packs, only: [:show, :new, :create]
   resources :cards, only: [:new, :create, :show]
   get '/answer/:card_id', to: 'cards#answer', as: :answer
   get '/learned/:card_id', to: 'cards#learned', as: :learned
