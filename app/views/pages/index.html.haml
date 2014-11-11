@@ -1,0 +1,18 @@
+%h1.text-center Memboost
+
+.row
+  .large-8.columns.large-offset-2
+    %p Create an account and begin training your memory.
+
+%br
+%br
+.row
+  .large-5.columns.large-offset-3
+    %fieldset
+      %legend Register
+      = form_for @user do |f|
+        = f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'User Name'
+        = f.text_field :email, class: 'form-control', placeholder: 'Email address'
+        = f.password_field :password, class: 'form-control', placeholder: 'Password'
+        = f.submit "Submit", class: 'button small radius'
+        %a{:href => login_path, :class => "right"} Login
