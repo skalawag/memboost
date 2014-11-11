@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def new
+  end
+
+  def create
+  end
+
   def show
     @user = current_user
     update_progress(@user)
