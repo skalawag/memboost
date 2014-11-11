@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  def new
-  end
-
   def create
+    user = User.create(user_params)
+    if user
+      flash[:success] = "Welcome, #{user.username}"
+      session[:user_id] = user.id
+      redirect_to user_path(user.id)
+    else
+      render root_path
+    end
   end
 
   def show
@@ -11,6 +16,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 
   def update_progress(user)
     user.packs.each do |pack|
