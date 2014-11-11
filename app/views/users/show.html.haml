@@ -1,11 +1,12 @@
 %br
-%br
-.row
-  .large-10.columns
+.row.left
+  .small-4.columns
+    = form_for @pack do |f|
+      = f.text_field :name, class: 'form-control left', placeholder: "New Pack Name"
+      = f.submit "Create Pack", class: 'button tiny left'
+  .small-8.columns
     %h2 #{@user.username}'s Flashcard Packs
     %hr
-.row
-  .large-8.columns.large-offset-1
     - @user.packs.each do |pack|
       %h3
         %a{ :href => pack_path(pack.id) } #{pack.name} (#{pack.cards.count} cards)
