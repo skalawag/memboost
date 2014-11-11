@@ -1,0 +1,14 @@
+.row
+  .small-2.columns
+  .small-6.columns
+    %br
+    %br
+    %h2 User login
+    %fieldset
+      = form_tag("/login", method: "post") do
+        = text_field_tag(:email, nil, autofocus: true, placeholder: "Email address")
+
+        = password_field_tag(:password, nil, placeholder: "Password")
+        %br
+        = submit_tag("Submit", class: "button small radius")
+  .small-4.columns
