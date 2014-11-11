@@ -2,13 +2,17 @@
   %ul.title-area
     %li.name
       %h1
-        %a{:href => user_path(1)} Memboost
+        - if current_user
+          %a{:href => user_path(current_user.id)} Memboost
+        - else
+          %a{:href => login_path} Memboost
         %section.top-bar-section
           / Right Nav Section
           %ul.right
             %li
               %a{:href => user_path(1)} Home
               %li
-                %a{:href => root_path} Log out
-                %li.active
-                  %a{:href => '/ui/register'} Register
+                - if current_user
+                  %a{:href => logout_path} Log out
+                - else
+                  %a{:href => login_path} Log in
