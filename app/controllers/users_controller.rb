@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @pack = Pack.new
     @user = current_user
     update_progress(@user)
   end
@@ -22,12 +23,14 @@ class UsersController < ApplicationController
   end
 
   def update_progress(user)
-    user.packs.each do |pack|
-      learned = pack.cards.where('learning_stage = ?', 'learned').count
-      # why do i have to cast this to a string to avoid
-      # FloatDomainError?
-      percentage = ((learned / (pack.cards.count * 1.0)) * 100).round(2).to_s
-      pack.update!(percent_learned: percentage)
+    packs = user.packs
+    if not packs.empty?
+      packs.each do |pack|
+        learned = pack.cards.where('learning_stage = ?', 'learned').count
+        percentage = ((learned / (pack.cards.count * 1.0)) * 100).round(2)
+        percentage = 0.2 if percentage == 0.0 || pack.cards.count == 0
+        pack.update!(percent_learned: percentage.to_s)
+      end
     end
   end
 end
