@@ -5,6 +5,7 @@ class PacksController < ApplicationController
 
   def create
     pack = Pack.new(pack_params)
+    pack.percent_learned = 0
     if pack.save
       current_user.packs << pack
       redirect_to user_path(current_user)
