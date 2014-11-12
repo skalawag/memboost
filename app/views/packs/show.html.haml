@@ -1,0 +1,15 @@
+%br
+%h2.text-center #{@pack.name} (#{@pack.cards.count})
+%hr
+%ul.side-nav
+  %li
+    %h4
+      = link_to "Begin Review", random_card_path(data: { pack_id: @pack.id })
+  %li
+    %h4
+      = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })
+  %li
+    %h4
+      = link_to "All Decks", user_path(current_user)
+
+%h3.text-center Some stats go here eventually...

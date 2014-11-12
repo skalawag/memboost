@@ -1,0 +1,22 @@
+%br
+%h2.text-center #{@pack.name}
+%hr
+
+%br
+%br
+%br
+= form_for @card do |f|
+  = hidden_field_tag "pack_id", @pack_id
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+        .small-9.columns
+          = f.text_field :front, placeholder: 'Card Front'
+  .row
+    .small-9.columns
+      .row
+        .small-3.columns
+        .small-9.columns
+          = f.text_area :back, placeholder: 'Card Back', rows: 10
+          = f.submit "Submit", class: 'button small radius'

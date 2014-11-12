@@ -1,0 +1,13 @@
+%center
+  %h1.text-center{ :style => "margin-top: 200px" } #{@card.front}
+  %h1.text-center.hide{ :style => "margin-top: 200px" } Marketplace
+
+  .row
+    .large-10.columns.large-offset-1
+      %ul.button-group{ :style => "margin-top: 200px" }
+        %li
+          %a.button{:style => "margin-right: 200px", :href => learned_path(@card.id), :data => {:pack_id => @card.pack_id}} I know it!
+        %li
+          %a.button{:style => "margin-right: 200px", :href => answer_path(@card.id), :data => {:pack_id => @card.pack_id}} Sorta (1)
+        %li
+          %a.button{:href => answer_path(@card.id), :data => {:pack_id => @card.pack_id}} No clue (3)

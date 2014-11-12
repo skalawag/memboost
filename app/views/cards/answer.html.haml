@@ -1,0 +1,4 @@
+%center
+  %h1.text-center{ :style => "margin-top: 200px" } #{@card.back}
+
+  %a.button{:style => "margin-top: 200px", :href => random_card_path(:data => {:pack_id => @card.pack_id})} Next

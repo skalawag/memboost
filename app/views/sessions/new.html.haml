@@ -1,0 +1,12 @@
+.row
+  .large-5.columns.large-offset-3
+    %br
+    %br
+    %fieldset
+      %legend Login
+      = form_tag("/login", method: "post") do
+        = text_field_tag(:email, nil, autofocus: true, placeholder: "Email address")
+
+        = password_field_tag(:password, nil, placeholder: "Password")
+        %br
+        = submit_tag("Submit", class: "button small radius")

@@ -1,0 +1,9 @@
+- flash.each do |name, msg|
+  - if name == 'alert'
+    .alert-box.alert{"data-alert" => ""}
+      #{msg}
+      %a.close{:href => "#"} &times;
+  - else
+    .alert-box.success{"data-alert" => ""}
+      #{msg}
+      %a.close{:href => "#"} &times;
