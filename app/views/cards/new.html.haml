@@ -1,5 +1,5 @@
 %br
-%h2.text-center Greek Vocabulary
+%h2.text-center #{@pack.name}
 %hr
 
 %br
@@ -11,14 +11,12 @@
     .small-9.columns
       .row
         .small-3.columns
-          = f.label :front
         .small-9.columns
-          = f.text_field :front
+          = f.text_field :front, placeholder: 'Card Front'
   .row
     .small-9.columns
       .row
         .small-3.columns
-          = f.label :back
         .small-9.columns
-          = f.text_field :back
-          = f.submit
+          = f.text_area :back, placeholder: 'Card Back', rows: 10
+          = f.submit "Submit", class: 'button small radius'
