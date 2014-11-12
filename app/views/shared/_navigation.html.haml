@@ -5,7 +5,7 @@
         - if current_user
           %a{:href => user_path(current_user.id)} #{current_user.username}@Memboost
         - else
-          %a{:href => login_path} Memboost
+          %a{:href => root_path} Memboost
         - if current_user
           %section.top-bar-section
             / Right Nav Section

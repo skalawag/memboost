@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       packs.each do |pack|
         learned = pack.cards.where('learning_stage = ?', 'learned').count
         percentage = ((learned / (pack.cards.count * 1.0)) * 100).round(2)
-        percentage = 0.2 if percentage == 0.0 || pack.cards.count == 0
+        percentage = 0.1 if percentage == 0.0 || pack.cards.count == 0
         pack.update!(percent_learned: percentage.to_s)
       end
     end

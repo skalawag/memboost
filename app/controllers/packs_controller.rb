@@ -10,6 +10,7 @@ class PacksController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:error] = "Something went wrong there. Try again."
+      redirect_to user_path(current_user)
     end
   end
 

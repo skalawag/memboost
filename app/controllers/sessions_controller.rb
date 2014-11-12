@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       flash[:error] = "Username or password not recognized."
       render :new
     end
-
   end
 
   def destroy

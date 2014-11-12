@@ -4,12 +4,31 @@
 .row
   .large-12.columns
     %p
-      Memboost is a
-      %a{:href => "https://en.wikipedia.org/wiki/Spaced_repetition"}
-        spaced-repetition
-      learning program. Memboost tries to space your exposure to items you want to remember in a way that optimizes your chances of remembering them. At first, you may need to see an item several times in a short period, but as you become more and more familiar with it, you will recall that item over longer intervals. Finally, you will have learned it and rarely need to review. Memboost will tune itself to your abilities over time, accelerating your uptake of information.
-      %ul.inline-list
-        %li
-          %a.button.small.radius{:href => login_path, :class => "right"} Login
-          %li
-            %a.button.small.radius{:href => new_user_path, :class => "right"} Register
+
+      Memboost is a spaced repetition learning program. Enter any item
+      you wish to recall into the program --- a vocabulary word, for
+      instance --- and Memboost will help you to learn it quickly and
+      retain it indefinitely.
+
+    %p
+
+      The principle is simple but powerful. Once an item has been
+      learned, all that's necessary to remember it indefinitely is
+      periodic reinforcement. Memboost will check your retention of a
+      given item to gauge whether it needs more or less frequent
+      reinforcement, and it will reschedule that item for a future
+      date depending on how well you've retained it.
+
+    %p
+
+      Memboost takes the pain out of studying large quantities of
+      information --- once an item is entered into the system,
+      everything else is taken care of. All you need to do is review
+      it on a regular basis.
+
+      %br
+  %ul.inline-list.right
+    %li
+      %a.button.small.radius{:href => login_path, :class => "right"} Login
+      %li
+        %a.button.small.radius{:href => new_user_path, :class => "right"} Register
