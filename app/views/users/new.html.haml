@@ -1,0 +1,12 @@
+%br
+.row
+  .large-5.columns.large-offset-3
+    %fieldset
+      %legend Register
+      = form_for @user do |f|
+        = render 'shared/error_messages'
+        = f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'User Name'
+        = f.text_field :email, class: 'form-control', placeholder: 'Email address'
+        = f.password_field :password, class: 'form-control', placeholder: 'Password'
+        = f.submit "Submit", class: 'button small radius'
+        %a{:href => login_path, :class => "right"} Login
