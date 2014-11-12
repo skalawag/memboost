@@ -13,4 +13,11 @@
               %li
                 %a{:href => user_path(current_user)} Your Packs
               %li
+                %a{:href => help_path} Help
+              %li
                 %a{:href => logout_path} Log out
+        - else
+          %section.top-bar-section
+            %ul.right
+              %li
+                %a{:href => help_path} Help

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
   root to: 'pages#index'
+  get '/help', to: 'pages#help'
   resources :users, only: [:show, :new, :create]
   resources :packs, only: [:show, :create]
   resources :cards, only: [:new, :create, :show]
