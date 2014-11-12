@@ -1,18 +1,15 @@
+%br
 %h1.text-center Memboost
 
 .row
-  .large-8.columns.large-offset-2
-    %p Create an account and begin training your memory.
-
-%br
-%br
-.row
-  .large-5.columns.large-offset-3
-    %fieldset
-      %legend Register
-      = form_for @user do |f|
-        = f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'User Name'
-        = f.text_field :email, class: 'form-control', placeholder: 'Email address'
-        = f.password_field :password, class: 'form-control', placeholder: 'Password'
-        = f.submit "Submit", class: 'button small radius'
-        %a{:href => login_path, :class => "right"} Login
+  .large-12.columns
+    %p
+      Memboost is a
+      %a{:href => "https://en.wikipedia.org/wiki/Spaced_repetition"}
+        spaced-repetition
+      learning program. Memboost tries to space your exposure to items you want to remember in a way that optimizes your chances of remembering them. At first, you may need to see an item several times in a short period, but as you become more and more familiar with it, you will recall that item over longer intervals. Finally, you will have learned it and rarely need to review. Memboost will tune itself to your abilities over time, accelerating your uptake of information.
+      %ul.inline-list
+        %li
+          %a.button.small.radius{:href => login_path, :class => "right"} Login
+          %li
+            %a.button.small.radius{:href => new_user_path, :class => "right"} Register
