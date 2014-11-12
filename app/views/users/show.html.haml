@@ -3,12 +3,18 @@
   .small-4.columns
     = form_for @pack do |f|
       = f.text_field :name, class: 'form-control left', placeholder: "New Pack Name"
-      = f.submit "Create Pack", class: 'button tiny left'
+      = f.submit "Create New Pack", class: 'button tiny left'
   .small-8.columns
-    %h2 #{@user.username}'s Flashcard Packs
+    %h2 Flashcard Packs
     %hr
-    - @user.packs.each do |pack|
-      %h3
-        %a{ :href => pack_path(pack.id) } #{pack.name} (#{pack.cards.count} cards)
-        .nice.round.progress.success
-          %span.meter{:style => "width: #{pack.percent_learned}%"}
+    - if @user.packs.empty?
+      %h4 You have no flashcard packs, yet. You can create your first on this page.
+    - else
+      - @user.packs.each do |pack|
+        %h3
+          %a{ :href => pack_path(pack.id) } #{pack.name}
+        .small-12.columns
+          %a.tiny{ :href => new_card_path(data: { pack_id: pack.id })} create card -- (#{pack.cards.count} cards)
+          %a.tiny.right{ :href => random_card_path(data: { pack_id: pack.id }) } review this deck
+          .nice.round.progress.success
+            %span.meter{:style => "width: #{pack.percent_learned}%"}
