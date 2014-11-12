@@ -7,7 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = Fabricate(:user)
+user = Fabricate(:user, username: "Test User", email: "test@test.com", password: "test")
 
 greek = Fabricate(:pack, name: "Ancient Greek Vocabulary")
 history = Fabricate(:pack, name: "U.S. History")
