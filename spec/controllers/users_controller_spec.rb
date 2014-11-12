@@ -68,7 +68,7 @@ describe UsersController do
       new_pack = Fabricate(:pack)
       user.packs << new_pack
       get :show, id: user.id
-      expect(Pack.first.percent_learned).to eq(0.1)
+      expect(Pack.first.percent_learned).to eq(0)
     end
   end
 end
