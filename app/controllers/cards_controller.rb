@@ -17,11 +17,16 @@ class CardsController < ApplicationController
   end
 
   def random_card
-    if Pack.find(params[:data][:pack_id]).cards.empty?
+    pack = Pack.find(params[:data][:pack_id])
+    if pack.cards.empty?
       flash[:error] = "There are no cards in that pack. You can create some with the Add Cards link below."
       redirect_to pack_path(params[:data][:pack_id])
+    elsif pack.unlearned_cards.empty?
+      flash[:success] = "You have learned all the cards in the #{pack.name} deck. Congratulations! You will be notified when you should review them again. Maybe you have other decks to review?"
+    #redirect_to pack_path(params[:data][:pack_id])
+      redirect_to user_path(current_user)
     else
-      redirect_to card_path(Pack.find(params[:data][:pack_id]).cards.sample.id)
+      redirect_to card_path(pack.unlearned_cards.sample.id)
     end
   end
 
