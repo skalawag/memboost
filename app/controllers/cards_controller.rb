@@ -1,15 +1,15 @@
 class CardsController < ApplicationController
   def new
     @pack_id = params[:data][:pack_id]
+    @pack = Pack.find(params[:data][:pack_id])
     @card = Card.new
   end
 
   def create
     @card = Card.new(card_params)
-    @card.pack_id = params[:pack_id]
+    Pack.find(params[:pack_id]).cards << @card
     if @card.save
-      flash[:success] = "Your card was added."
-      redirect_to pack_path(params[:pack_id])
+      redirect_to user_path(current_user)
     else
       flash[:error] = "Something went wrong."
       render :new
@@ -17,7 +17,12 @@ class CardsController < ApplicationController
   end
 
   def random_card
-    redirect_to card_path(Pack.find(params[:data][:pack_id]).cards.sample.id)
+    if Pack.find(params[:data][:pack_id]).cards.empty?
+      flash[:error] = "There are no cards in that pack. You can create some with the Add Cards link below."
+      redirect_to pack_path(params[:data][:pack_id])
+    else
+      redirect_to card_path(Pack.find(params[:data][:pack_id]).cards.sample.id)
+    end
   end
 
   def show

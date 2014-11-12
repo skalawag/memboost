@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
+  def new
+    @user = User.new
+  end
+
   def create
-    user = User.create(user_params)
-    if user
-      flash[:success] = "Welcome, #{user.username}"
-      session[:user_id] = user.id
-      redirect_to user_path(user.id)
+    @user = User.create(user_params)
+    if @user.valid?
+      flash[:success] = "Welcome, #{@user.username}"
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
-      render root_path
+      render :new
     end
   end
 
   def show
     @pack = Pack.new
     @user = current_user
-    update_progress(@user)
+    update_user_progress(@user)
   end
 
   private
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
-  def update_progress(user)
+  def update_user_progress(user)
     packs = user.packs
     if not packs.empty?
       packs.each do |pack|
