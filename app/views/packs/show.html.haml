@@ -6,7 +6,7 @@
     %ul.side-nav
       %li
         %h5
-          = link_to "Begin Review", random_card_path(data: { pack_id: @pack.id })
+          = link_to "Review", random_card_path(data: { pack_id: @pack.id })
       %li
         %h5
           = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })
@@ -41,8 +41,6 @@
                 %td #{card.attempts}
                 %td #{card.creation_date}
                 %td ?
-
-
       #panel2.content
         %p This is the second panel of the basic tab example. This is the second panel of the basic tab example.
       #panel3.content
