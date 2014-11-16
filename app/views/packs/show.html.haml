@@ -32,16 +32,16 @@
               %th{:width => "350"} Answer
               %th{:width => "15"} Attempts
               %th{:width => "100"} Added
+              %th{:width => "100"} Learned
           %body
             - @pack.cards.each do |card|
               %tr
-                %td
-                  #{card.front}
-                %td
-                  #{card.back}
-                %td
-                  #{card.attempts}
+                %td #{card.front}
+                %td #{card.back}
+                %td #{card.attempts}
                 %td #{card.creation_date}
+                %td ?
+
 
       #panel2.content
         %p This is the second panel of the basic tab example. This is the second panel of the basic tab example.
