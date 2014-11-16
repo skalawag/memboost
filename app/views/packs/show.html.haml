@@ -1,3 +1,25 @@
+- gdata = @pack.gdata
+
+- content_for :head do
+  %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
+    :javascript
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ["Card", "Attempts",],
+      ["ἀγορά, ἀγοράς, ἡ", 2,],
+      ["λόγος, λόγου, ὁ", 2,]]);
+      var options = {
+      title: 'Attempts per card',
+      legend: { position: 'none' },
+      histogram: { bucketSize: 2 }
+      };
+
+      var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+      chart.draw(data, options);
+      }
+
 %br
 %h2.text-center #{@pack.name} (#{@pack.cards.count})
 %hr
@@ -42,7 +64,7 @@
                 %td #{card.creation_date}
                 %td ?
       #panel2.content
-        %p This is the second panel of the basic tab example. This is the second panel of the basic tab example.
+        #chart_div{:style => "width: 500px; height: 400px;"}
       #panel3.content
         %p This is the third panel of the basic tab example. This is the third panel of the basic tab example.
       #panel4.content
