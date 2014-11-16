@@ -1,6 +1,11 @@
+%a.button.small{:href => user_path(current_user)} I'm done reviewing
 %center
-  %h1.text-center{ :style => "margin-top: 200px" } #{@card.front}
-  %h1.text-center.hide{ :style => "margin-top: 200px" } Marketplace
+  %h1.text-center{ :style => "margin-top: 190px" } #{@card.front}
+  %h1.text-center.hide{ :style => "margin-top: 190px" } Marketplace
+
+  .hide
+    %a.button.center{:style => "margin-top: 200px", :href => random_card_path(:data => {:pack_id => @card.pack_id})} Next
+
 
   .row
     .large-10.columns.large-offset-1

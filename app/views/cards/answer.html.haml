@@ -1,4 +1,6 @@
+%a.button.small{:href => user_path(current_user)} I'm done reviewing
 %center
-  %h1.text-center{ :style => "margin-top: 200px" } #{@card.back}
+  %h1.text-center{ :style => "margin-top: 190px" } #{@card.front}
+  %h1.text-center{ :style => "margin-top: 190px" } #{@card.back}
 
   %a.button{:style => "margin-top: 200px", :href => random_card_path(:data => {:pack_id => @card.pack_id})} Next
