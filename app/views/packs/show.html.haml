@@ -1,15 +1,51 @@
 %br
 %h2.text-center #{@pack.name} (#{@pack.cards.count})
 %hr
-%ul.side-nav
-  %li
-    %h4
-      = link_to "Begin Review", random_card_path(data: { pack_id: @pack.id })
-  %li
-    %h4
-      = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })
-  %li
-    %h4
-      = link_to "All Decks", user_path(current_user)
+.row
+  .div.small-2.columns
+    %ul.side-nav
+      %li
+        %h5
+          = link_to "Begin Review", random_card_path(data: { pack_id: @pack.id })
+      %li
+        %h5
+          = link_to "Add Cards", new_card_path(data: { pack_id: @pack.id })
+      %li
+        %h5
+          = link_to "All Decks", user_path(current_user)
+  .div.small-10.columns
+    %dl.tabs{"data-tab" => ""}
+      %dd.active
+        %a{:href => "#panel1"} Cards
+      %dd
+        %a{:href => "#panel2"} Learning Rate
+      %dd
+        %a{:href => "#panel3"} Tab 3
+      %dd
+        %a{:href => "#panel4"} Tab 4
+    .tabs-content
+      #panel1.content.active
+        %table
+          %thead
+            %tr
+              %th{:width => "200"} Prompt
+              %th{:width => "350"} Answer
+              %th{:width => "15"} Attempts
+              %th{:width => "100"} Added
+          %body
+            - @pack.cards.each do |card|
+              %tr
+                %td
+                  #{card.front}
+                %td
+                  #{card.back}
+                %td
+                  #{card.attempts}
+                %td #{card.created_at}
 
-%h3.text-center Some stats go here eventually...
+      #panel2.content
+        %p This is the second panel of the basic tab example. This is the second panel of the basic tab example.
+      #panel3.content
+        %p This is the third panel of the basic tab example. This is the third panel of the basic tab example.
+      #panel4.content
+        %p This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.
