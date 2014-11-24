@@ -1,6 +1,8 @@
 class PacksController < ApplicationController
   def show
     @pack = Pack.find(params[:id])
+    @chart_data = [["Card", "Attempts",]]
+    @chart_data += @pack.cards.map { |card| [card.front, card.attempts] }
   end
 
   def create

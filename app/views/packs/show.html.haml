@@ -1,22 +1,21 @@
 - content_for :head do
   %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
-    :javascript
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-      ["Card", "Attempts",],
-      ["ἀγορά, ἀγοράς, ἡ", 2,],
-      ["λόγος, λόγου, ὁ", 2,]]);
-      var options = {
-      title: 'Attempts per card',
-      legend: { position: 'none' },
-      histogram: { bucketSize: 2 }
-      };
+  :javascript
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable(
+    #{@chart_data}
+    );
+    var options = {
+    title: 'Attempts per card',
+    legend: { position: 'none' },
+    histogram: { bucketSize: 2 }
+    };
 
-      var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
-      chart.draw(data, options);
-      }
+    var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+    chart.draw(data, options);
+    }
 
 %br
 %h2.text-center #{@pack.name} (#{@pack.cards.count})
